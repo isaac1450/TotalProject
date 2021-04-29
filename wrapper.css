@@ -1,0 +1,73 @@
+#root {
+  background: white;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  position: fixed;
+  max-width: 500px;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+}
+
+#wrapper {
+  flex: 1;
+  overflow-y: auto;
+  z-index: 0;
+}
+
+html,
+body {
+  height: 100%;
+
+}
+
+body {
+  touch-action: manipulate;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+
+  position: relative;
+
+  max-width: 500px;
+
+  width: 100%;
+  height: 100%;
+
+  margin: auto !important;
+  background: white;
+
+  overflow: hidden;
+}
+
+/* PC Web 스크롤바 컬러 변경 */
+
+@media (min-width: 1360px) {
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #ccc;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #aaa;
+  }
+}
