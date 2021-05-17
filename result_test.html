@@ -5,11 +5,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Facebook (Common) Open Graph -->
+    <meta property="og:type" content="미리보기 종류" />
+    <meta property="og:url" content="http://54.180.134.106" />
+    <meta property="og:title" content="미리보기 제목" />
+    <meta property="og:description" content="미리보기 설명" />
+    <meta property="og:image" content="미리보기 이미지 주소" />
+    <!-- Twitter Open Graph -->
+    <meta name="twitter:card" content="트위터 미리보기 종류" />
+    <meta name="twitter:url" content="http://54.180.134.106" />
+    <meta name="twitter:title" content="미리보기 제목" />
+    <meta name="twitter:description" content="미리보기 설명" />
+    <meta name="twitter:image" content="미리보기 이미지 주소" />
+
     <title>Document</title>
     <link rel="stylesheet" href="normalize.css">
     <link rel="stylesheet" href="wrapper.css">
     <!-- js 설정 -->
-    <script type='text/javascript'src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+    <script type='text/javascript' src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 
 </head>
 
@@ -21,70 +34,267 @@
                 <span class="Home_btn-text__2zeAC">Go main page button</span>
             </div>
         </a>
-        <h1 class="mbti_result">ESTP</h1>
-        <h4 class="mbti_contents">즐거운 소비생활을 추구하는 당신 !
-            <br>외향적인 성격으로 도전하는 것을 즐기기에
-            <br>소비 스펙트럼이 다양하며
-            <br>여행이나 놀이공원 할인에 행복을 느낍니다
-            </h3>
 
-            <div class="main">
-                <!--회색바탕 카드 시작 -->
-                <img class="card_1" src="cardimg/nori.png" alt="nori">
-                <h3>노리체크카드</h3>
-                <div class="main_1 main_common">
-                    <img class="card_23" src="cardimg/cookie.png" alt="cookie">
-                </div>
-                <div class="main_2 main_common">
-                    <img class="card_23" src="cardimg/dream.png" alt="dream">
-                </div>
+        <h1 class="mbti_result"></h1>
+        <script>
+            mbtiresult = "enfp";
+            switch (mbtiresult) {
+                case "istj": {
+                    document.write("<h1 class='mr'>ISTJ</h1>");
+                    document.write("<h4 class='mm'>- 성실노력형 -<h4>");
+                    document.write(
+                        "<h4 class='mc'>&emsp;정해진 규칙과 절차를 따르려는 경향이 가장 강한 유형이다. 그래서 굉장히 믿음직하다. 이상한 행동으로 일을 망쳐버릴 사람이 아니기에, 믿고 일을 맡길 수 있다. 변화보다는 안정을 추구하는 경향이 가장 강한 유형이다. 한 직장을 가장 꾸준히 다니는 유형이며, 결혼을 여러 번 하는 일이 가장 적은 유형이다. 비록 공감에 서툴고 자기와 다른 사람들을 이해하길 어려워하지만, 사실은 자기 사람들에게 깊고 진실한 애정을 가지고 있다.</h4>"
+                    );
+                    break;
+                }
+
+                case "istp": {
+                    document.write("<h1 class='mr'>ISTP</h1>");
+                    document.write("<h4 class='mm'>- 재주꾼형 -<h4>");
+                    document.write(
+                        "<h4 class='mc'>&emsp;실용적이며 응용할 수 있는 과학 분야, 그 중에서도 특별히 기계 분야에 관심을 둔다. 모든 기능들 중에서 감각 기능은 가시적이며 실체적인 물질적 재화들에 대해서 가장 깊이 통찰하게 해주며, 그러한 통찰력을 어떻게 바루히하고, 그러한 통찰력으로 해서 그가 할 수 있는 일과 할 수 없는 일을 식별해 내게 한다.</h4>"
+                    );
+                    break;
+                }
+
+                case "isfj": {
+                    document.write("<h1 class='mr'>ISFJ</h1>");
+                    document.write("<h4 class='mm'>- 수호자형 -<h4>");
+                    document.write(
+                        "<h4 class='mc'>&emsp;인간관계가 무척 원만하며, 그 특유의 꼼꼼함으로 사람들을 잘 챙긴다. 남을 돌보는 일에 소질이 있는 경우가 많다. 독실한 종교인 중에 많이 이들이 이러한 성향을 가지고 있고, 교육 전공자들 중에서도 많이 발견된다. 건강 관리 및 간호 계통 직종에도 많이 종사한다. 신뢰할만하고, 사려 깊으며, 자신과 관련된 집단이나 사람들에게 헌신적이고, 책임을 충실하게 이행한다.</h4>"
+                    );
+                    break;
+                }
+
+                case "isfp": {
+                    document.write("<h1 class='mr'>ISFP</h1>");
+                    document.write("<h4 class='mm'>- 예술가형 -<h4>");
+                    document.write(
+                        "<h4 class='mc'>&emsp;장인 기질이 뛰어난 사람들이다. 자연에 대해 특별한 애정을 가졌으며, 동물을 대하는 동정심 또한 각별하다. 그들은 대개 말로 하는 일보다는 수작업에 더 이끌린다. 그들은 헌신과 적응력이 요구되는 직분, 이를테면 새로운 상황이 발생할 때마다 그 상황을 간파해 내서, 그들이 받은 가르침을 현재의 환경에 맞추어 새롭게 적용하는데 능통하다.</h4>"
+                    );
+                    break;
+                }
+
+                case "intj": {
+                    document.write("<h1 class='mr'>INTJ</h1>");
+                    document.write("<h4 class='mm'>- 과학자형 -<h4>");
+                    document.write(
+                        "<h4 class='mc'>&emsp;지적이고 체계적인 유형으로서, 위대한 철학자나 과학자들 중에서 자주 발견된다. 자신의 관념 세계를 구축하는 데에는 거침이 없으며, 아무리 위험하고 혁명적이고 이단적이라도 멈추지 않는다. 사람들과 개인적인 친분을 쌓는 데 어려움을 겪기 쉽다. 친하게 지낼 가치가 없다고 생각하는 사람들에게는 무척 냉정한 면이 있다. 하지만 자기 사람으로 생각하는 이들에게는 따뜻하고, 서툴지만 굉장히 잘해주고 싶어 하며, 마음을 다 준다.</h4>"
+                    );
+                    break;
+                }
+
+                case "intp": {
+                    document.write("<h1 class='mr'>INTP</h1>");
+                    document.write("<h4 class='mm'>- 사색가 -<h4>");
+                    document.write(
+                        "<h4 class='mc'>&emsp;정신적인 영역, 학문적 혹은 문화 예술적인 영역으로 경험을 확장해 나간다. 자극이 적은 일조차 흥미를 잘 느끼고 집중할 수 있다. 따라서 다양한 분야에서 경쟁력이 있다. 아이디어 뱅크라 불릴 정도로 머릿속으로 수없이 많은 생각을 한다.</h4>"
+                    );
+                    break;
+                }
+
+                case "infj": {
+                    document.write("<h1 class='mr'>INFJ</h1>");
+                    document.write("<h4 class='mm'>- 정신적 지주형 -<h4>");
+                    document.write(
+                        "<h4 class='mc'>&emsp;내향적이고 자신에 대한 표현을 하지 않는 유형이라 아무 말도 안 하지만 일정한 기준을 제시한다. 이 기준은 자신이 속한 그룹에서 윤리적 근간을 의미하며 자신의 올바른 윤리적 기준으로 주위 사람들에게 보이지 않게 긍정적인 영향을 준다. 하지만 이들의 윤리적 신념이 항상 사회 통념과 일치하지는 않으며, 때로는 다른 사람들과 마찰을 빚을 수도 있다.</h4>"
+                    );
+                    break;
+                }
+
+                case "infp": {
+                    document.write("<h1 class='mr'>INFP</h1>");
+                    document.write("<h4 class='mm'>- 몽상가형 -<h4>");
+                    document.write(
+                        "<h4 class='mc'>&emsp;예민하고, 여리고, 우울하고 불안이 많다는 이미지가 강하다. 그러나 이 유형이더라도 신경성이 낮으면 우울적 성향이 적고 차분하고 정서적으로 안정적일 수 있다. 이들은 발산적 사고와 풍부한 감성, 그리고 특유의 몽상가적 기질이 있다.</h4>"
+                    );
+                    break;
+                }
+
+                case "estj": {
+                    document.write("<h1 class='mr'>ESTJ</h1>");
+                    document.write("<h4 class='mm'>- 관리자형 -<h4>");
+                    document.write(
+                        "<h4 class='mc'>&emsp;사교적이고, 활발하며, 사람들과 어울리는 것을 좋아한다. 표현이 투박하지만, 자기 사람에게는 충실한 '의리파'다. 자신에게 주어진 업무와 직업 환경에 만족하고 열정적으로 일한다. 직업만족도가 높은 유형이다. 본인이 속한 조직을 중요하고 가치있게 여기며, 주어진 체제에잘 순응하고, '시스템 안에서의 성취'에 높은 가치를 둔다.</h4>"
+                    );
+                    break;
+                }
+
+                case "estp": {
+                    document.write("<h1 class='mr'>ESTP</h1>");
+                    document.write("<h4 class='mm'>- 자극추구형 -<h4>");
+                    document.write(
+                        "<h4 class='mc'>&emsp;자신의 주변에서 벌어지는 모든 일에 관심을 갖고 있다. 새로운 경험을 제공하는 모든 것들, 앉아서 연구하거나 책을 읽는 것보다 상황에 뛰어들어 행동하는 사람들이다. 인생을 사랑하고, 인생 안에 자신을 파묻는다. 다른 이들은 이들의 열정적이고 재미있는 모습을 좋아한다.</h4>"
+                    );
+                    break;
+                }
+
+                case "esfj": {
+                    document.write("<h1 class='mr'>ESFJ</h1>");
+                    document.write("<h4 class='mm'>- 친목회장형 -<h4>");
+                    document.write(
+                        "<h4 class='mc'>&emsp;굉장히 사회성이 높으며, 사회의 대다수 사람들이 옳다고 받아들이는 방식과 완벽히 일치하게끔 행동한다. 사람들이 서로 화목하게 공존하는 것을 중요시 여긴다. 사회와 관습의 영향을 가장 많이 받는 유형이다. 추상적 사고에 약하고 의식이 구체적인 인물과 사물을 향해 있다.</h4>"
+                    );
+                    break;
+                }
+
+                case "esfp": {
+                    document.write("<h1 class='mr'>ESFP</h1>");
+                    document.write("<h4 class='mm'>- 사교가형 -<h4>");
+                    document.write(
+                        "<h4 class='mc'>&emsp;인생을 열광적으로 사랑한다. 순간을 살아가고 어디에서나 인생의 즐거움을 누린다. 융통성 있고, 잘 적응하며 붙임성 있고, 태평하다. 계획을 세우기보다는 순간에 벌어진 일들 속에 반응하는 자신의 능력을 신뢰하며, 현재 자신에게 벌어진 것들을 효과적으로 다룬다.</h4>"
+                    );
+                    break;
+                }
+
+                case "entj": {
+                    document.write("<h1 class='mr'>ENTJ</h1>");
+                    document.write("<h4 class='mm'>- 지도자형 -<h4>");
+                    document.write(
+                        "<h4 class='mc'>&emsp;예술에 대한 관심도가 높고, 감수성이 풍부하다. 성취동기가 높고 물질적인 욕심도 많으며, 자기 사업을 만들고 키운다. 굉장히 창의적인 유형이다.</h4>"
+                    );
+                    break;
+                }
+
+                case "entp": {
+                    document.write("<h1 class='mr'>ENTP</h1>");
+                    document.write("<h4 class='mm'>- 다능인형 -<h4>");
+                    document.write(
+                        "<h4 class='mc'>&emsp;언제나 '드디어' 운명적인 무언가를 발견한 것처럼 새로운 것에 빠져들지만, 어느 순간 그것에 질려버리고, 또 다시 새로운 것을 찾아서 뒤도 돌아보지 않고 떠나버린다.</h4>"
+                    );
+                    break;
+                }
+
+                case "enfj": {
+                    document.write("<h1 class='mr'>ENFJ</h1>");
+                    document.write("<h4 class='mm'>- 박애주의형 -<h4>");
+                    document.write(
+                        "<h4 class='mc'>&emsp;사교성과 사회성이 무척 높고, 사람들 사이의 화목함을 매우 중요시 여긴다. 다른 사람들과 조화를 잘 이루고, 정서적인 욕구와 동기들 그리고 관심들을 이해하기 위해 감정이입이 빠르게 진행된다.</h4>"
+                    );
+                    break;
+                }
+
+                case "enfp": {
+                    document.write("<h1 class='mr'>ENFP</h1>");
+                    document.write("<h4 class='mm'>- 재기발랄형 -<h4>");
+                    document.write(
+                        "<h4 class='mc'>&emsp;따뜻하고 정열적이고 활기가 넘치며 재능이 많고 상상력이 풍부하다. 창의적이며 항상 새로운 가능성을 찾고 시도하는 유형이다.</h4>"
+                    );
+                    break;
+                }
+
+                default:
+                    document.write("nothing");
+            }
+        </script>
+
+        <!--회색바탕 카드 시작 -->
+        <div class="main">
+            <img class="card_1" src="card_img/nori.png" alt="nori">
+            <h3>노리체크카드</h3>
+            <div class="main_1 main_common">
+                <img class="card_23" src="card_img/cookie.png" alt="cookie">
             </div>
-            <!--회색바탕 카드 끝 -->
+            <div class="main_2 main_common">
+                <img class="card_23" src="card_img/dream.png" alt="dream">
+            </div>
+        </div>
+        <!--회색바탕 카드 끝 -->
 
-            <h3>결과 공유하기</h3><br>
-            <a id="kakao-link-btn" href="javascript:;">
-                <img src="kakaolink_btn.png" />
-            </a>
+        <h3 class="resulth3">결과 공유하기</h3><br>
+        <div class="sns">
+            <a id="btnKakao" class="link-icon kakao" href="javascript:shareKakao();">&emsp;&emsp;&emsp;</a>
+            <a id="btnFacebook" class="link-icon facebook" href="javascript:shareFacebook();">&emsp;&emsp;&emsp;</a>
+            <a id="btnTwitter" class="link-icon twitter" href="javascript:shareTwitter();">&emsp;&emsp;&emsp;</a>
+        </div>
+        <!--
+            <div class="sns_1 sns_order">
+                <a id="kakao-link-btn" href="javascript:;">
+                    <img class="sns_img" src="kakaolink_btn.png" />
+                </a>
+            </div>
+            <div class="sns_2 sns_order">
+                <a id="kakao-link-btn" href="javascript:;">
+                    <img class="sns_img" src="kakaolink_btn.png" />
+                </a>
+            </div>
+        </div>
+        <a id="btnKakao" class="link-icon kakao" href="javascript:shareKakao();">카카오톡</a>
+        <a id="btnTwitter" class="link-icon twitter" href="javascript:shareTwitter();">트위터</a>
+        <a id="btnFacebook" class="link-icon facebook" href="javascript:shareFacebook();">페이스북</a>
+        -->
+        <script>
+            function shareTwitter() {
+                var sendText = "C-MBTI"; // 전달할 텍스트
+                var sendUrl = "http://54.180.134.106"; // 전달할 URL
+                window.open("https://twitter.com/intent/tweet?text=" + sendText + "&url=" + sendUrl);
+            }
 
-            <script>
+            function shareFacebook() {
+                var sendUrl = "http://54.180.134.106"; // 전달할 URL
+                window.open("http://www.facebook.com/sharer/sharer.php?u=" + sendUrl);
+            }
+
+            function shareKakao() {
+                // 사용할 앱의 JavaScript 키 설정
                 Kakao.init('af93b4ff4b93dc7b210b5d807e256093');
+
+                // 카카오링크 버튼 생성
                 Kakao.Link.createDefaultButton({
-                    container: '#kakao-link-btn',
+                    container: '#btnKakao', // 카카오공유버튼ID
                     objectType: 'feed',
                     content: {
-                        title: 'C-MBTI',
-                        description: 'MBTI 카드추천',
-                        imageUrl: 'gugbab.JPG',
+                        title: "C-MTBI", // 보여질 제목
+                        description: "체크카드로 보는 내 성격!", // 보여질 설명
+                        imageUrl: "http://54.180.134.106", // 콘텐츠 URL
                         link: {
-                            mobileWebUrl: 'https://developers.kakao.com',
-                            androidExecParams: 'test',
-                        },
-                    },
-                    social: {
-                        likeCount: 10,
-                        commentCount: 20,
-                        sharedCount: 30,
-                    },
-                    buttons: [{
-                            title: '웹으로 이동',
-                            link: {
-                                mobileWebUrl: 'https://developers.kakao.com',
-                            },
-                        },
-                        {
-                            title: '앱으로 이동',
-                            link: {
-                                mobileWebUrl: 'https://developers.kakao.com',
-                            },
-                        },
-                    ]
+                            mobileWebUrl: "https://developers.kakao.com",
+                            webUrl: "https://developers.kakao.com"
+                        }
+                    }
                 });
-            </script>
-            <hr>
-            <h3 style="margin-left: 100px; margin-bottom: 10px; 
+            }
+            /*
+                        Kakao.init('af93b4ff4b93dc7b210b5d807e256093');
+                        Kakao.Link.createDefaultButton({
+                            container: '#kakao-link-btn',
+                            objectType: 'feed',
+                            content: {
+                                title: 'C-MBTI',
+                                description: 'MBTI 카드추천',
+                                imageUrl: 'gugbab.JPG',
+                                link: {
+                                    mobileWebUrl: 'https://developers.kakao.com',
+                                    androidExecParams: 'test',
+                                },
+                            },
+                            social: {
+                                likeCount: 10,
+                                commentCount: 20,
+                                sharedCount: 30,
+                            },
+                            buttons: [{
+                                    title: '웹으로 이동',
+                                    link: {
+                                        mobileWebUrl: 'https://developers.kakao.com',
+                                    },
+                                },
+                                {
+                                    title: '앱으로 이동',
+                                    link: {
+                                        mobileWebUrl: 'https://developers.kakao.com',
+                                    },
+                                },
+                            ]
+                        });*/
+        </script>
+        <hr>
+        <h3 style="margin-left: 100px; margin-bottom: 10px; 
             margin-top: 30px; text-align: left;">
-                C-MBTI 별 소비습관</h3>
-            <div class="main"></div>
+            C-MBTI 별 소비습관</h3>
+        <div class="main"></div>
     </div>
 
 </body>
+
+</html>
