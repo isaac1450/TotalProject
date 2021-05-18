@@ -23,11 +23,25 @@
     <link rel="stylesheet" href="wrapper.css">
     <!-- js 설정 -->
     <script type='text/javascript' src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-
+    <link rel="stylesheet" type="text/css" href="semantic/semantic.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="semantic/semantic.js"></script>
 </head>
 
 <body>
-    <div style="overflow:auto;height: 899px;">
+    <script>
+        function scrollX() {
+            document.all.mainTable.scrollLeft = document.all.bottomLine.scrollLeft;
+            document.all.topTable.scrollLeft = document.all.bottomLine.scrollLeft;
+        }
+
+        function scrollY() {
+            document.all.leftTable.scrollTop = document.all.mainTable.scrollTop;
+            document.all.mainTable.scrollTop = document.all.leftTable.scrollTop;
+        }
+    </script>
+    <div style="overflow-y:scroll; height:inherit">
         <a href="http://54.180.134.106">
             <!--클릭 페이지전환-->
             <div class="Home_topbar">
@@ -37,7 +51,11 @@
 
         <h1 class="mbti_result"></h1>
         <script>
-            mbtiresult = "enfp";
+            //설문에서 넘기는 방법,
+            temp = (location.href || '').split("?");
+            data = (temp[1] || '').split(":");
+            name = data[0];
+            mbtiresult = data[1].toLowerCase(); //결과값 임의로 정의 enfp
             switch (mbtiresult) {
                 case "istj": {
                     document.write("<h1 class='mr'>ISTJ</h1>");
@@ -190,24 +208,121 @@
 
         <!--회색바탕 카드 시작 -->
         <div class="main">
-            <img class="card_1" src="card_img/nori.png" alt="nori">
-            <h3>노리체크카드</h3>
-            <div class="main_1 main_common">
-                <img class="card_23" src="card_img/cookie.png" alt="cookie">
-            </div>
-            <div class="main_2 main_common">
-                <img class="card_23" src="card_img/dream.png" alt="dream">
-            </div>
-        </div>
-        <!--회색바탕 카드 끝 -->
+            <input type="checkbox" id="popup">
+            <label for="popup">
+                <img class="card_1" src="card_img/nori.png" alt="nori"></label>
+            <div>
+                <div>
+                    <div class="pop_scroll">
+                        <h4 class='card_contents'>
+                            뀨뀨잉뀨잉뀨뀨잉뀨뀨잉뀨잉뀨뀨잉뀨잉뀨뀨잉뀨잉뀨뀨잉뀨잉</h4>
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illo provident non alias cumque amet
+                        nesciunt eligendi pariatur ab ad itaque voluptatum, consequatur vitae aliquam dignissimos
+                        corporis eum corrupti! Laudantium, sit?
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas aut laborum esse quos ab quam
+                        expedita molestiae! Quaerat ullam odit exercitationem sit, mollitia at. Impedit autem quae
+                        doloribus deleniti quis.
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet numquam expedita explicabo dicta
+                        optio, sapiente incidunt fugit nostrum beatae labore, sunt praesentium modi voluptatibus! Sed
+                        porro pariatur error culpa ipsum.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur dolore quas illum, modi
+                        obcaecati itaque temporibus voluptate, repudiandae voluptates cum doloribus tempore id a eaque.
+                        Aut minus consectetur voluptatibus esse!
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim error, deserunt eum libero
+                        aspernatur veritatis ipsa est, nam odio recusandae rem quaerat quidem reprehenderit eos nulla
+                        dolores quibusdam nihil aperiam.
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Non nemo, minus quae enim voluptatibus
+                        deleniti ullam quam amet maiores iste voluptatum suscipit earum dignissimos repellat. Nobis
+                        itaque nemo neque dicta?
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora numquam recusandae, nostrum
+                        ullam, obcaecati odit quam nulla sint atque quis ipsa modi vitae quasi omnis eos consequuntur
+                        assumenda unde illum?
+                    </div>
+                    <label for="popup"></label>
+                    <div>
+                        <input class="like" type="checkbox" value="1" name="like">좋아요
+                        <div class="ui labeled button" tabindex="0">
+                            <div class="ui red button">
+                                <i class="heart icon" type="checkbox" value="1" name="like"></i> 좋아요
+                            </div>
+                            <a class="ui basic red left pointing label">
+                                123
+                            </a>
+                        </div>
+                    </div>
 
-        <h3 class="resulth3">결과 공유하기</h3><br>
-        <div class="sns">
-            <a id="btnKakao" class="link-icon kakao" href="javascript:shareKakao();">&emsp;&emsp;&emsp;</a>
-            <a id="btnFacebook" class="link-icon facebook" href="javascript:shareFacebook();">&emsp;&emsp;&emsp;</a>
-            <a id="btnTwitter" class="link-icon twitter" href="javascript:shareTwitter();">&emsp;&emsp;&emsp;</a>
-        </div>
-        <!--
+                </div>
+                <label for="popup"></label>
+            </div>
+            <h3>노리체크카드</h3>
+
+            <input type="checkbox" id="popup_1">
+            <label for="popup_1">
+                <div class="main_1 main_common">
+                    <img class="card_23" src="card_img/cookie.png" alt="cookie">
+                </div>
+            </label>
+            <div>
+                <div>
+                    <div class="pop_scroll">
+                        <h4 class='card_contents'>
+                            anjdi어어 두번째카드
+                    </div>
+                    <label for="popup_1"></label>
+                    <div>
+                        <input class="like" type="checkbox" value="1" name="like">좋아요
+                        <div class="ui labeled button" tabindex="0">
+                            <div class="ui red button">
+                                <i class="heart icon" type="checkbox" value="1" name="like"></i> 좋아요
+                            </div>
+                            <a class="ui basic red left pointing label">
+                                123
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+                <label for="popup_1"></label>
+            </div>
+
+            <input type="checkbox" id="popup_2">
+            <label for="popup_2">
+                <div class="main_2 main_common">
+                    <img class="card_23" src="card_img/dream.png" alt="dream">
+                </div>
+            </label>
+            <div>
+                <div>
+                    <div class="pop_scroll">
+                        <h4 class='card_contents'>
+                            세번째카드33333333
+                    </div>
+                    <label for="popup_2"></label>
+                    <div>
+                        <input class="like" type="checkbox" value="1" name="like">좋아요
+                        <div class="ui labeled button" tabindex="0">
+                            <div class="ui red button">
+                                <i class="heart icon" type="checkbox" value="1" name="like"></i> 좋아요
+                            </div>
+                            <a class="ui basic red left pointing label">
+                                123
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+                <label for="popup_2"></label>
+            </div>
+
+            <!--회색바탕 카드 끝 -->
+
+            <h3 class="resulth3">결과 공유하기</h3><br>
+            <div class="sns">
+                <a id="btnKakao" class="link-icon kakao" href="javascript:shareKakao();">&emsp;&emsp;&emsp;</a>
+                <a id="btnFacebook" class="link-icon facebook" href="javascript:shareFacebook();">&emsp;&emsp;&emsp;</a>
+                <a id="btnTwitter" class="link-icon twitter" href="javascript:shareTwitter();">&emsp;&emsp;&emsp;</a>
+            </div>
+            <!--
             <div class="sns_1 sns_order">
                 <a id="kakao-link-btn" href="javascript:;">
                     <img class="sns_img" src="kakaolink_btn.png" />
@@ -223,77 +338,54 @@
         <a id="btnTwitter" class="link-icon twitter" href="javascript:shareTwitter();">트위터</a>
         <a id="btnFacebook" class="link-icon facebook" href="javascript:shareFacebook();">페이스북</a>
         -->
-        <script>
-            function shareTwitter() {
-                var sendText = "C-MBTI"; // 전달할 텍스트
-                var sendUrl = "http://54.180.134.106"; // 전달할 URL
-                window.open("https://twitter.com/intent/tweet?text=" + sendText + "&url=" + sendUrl);
-            }
+            <script>
+                function shareTwitter() {
+                    var sendText = "C-MBTI"; // 전달할 텍스트
+                    var sendUrl = "http://54.180.134.106"; // 전달할 URL
+                    window.open("https://twitter.com/intent/tweet?text=" + sendText + "&url=" + sendUrl);
+                }
 
-            function shareFacebook() {
-                var sendUrl = "http://54.180.134.106"; // 전달할 URL
-                window.open("http://www.facebook.com/sharer/sharer.php?u=" + sendUrl);
-            }
+                function shareFacebook() {
+                    var sendUrl = "http://54.180.134.106"; // 전달할 URL
+                    window.open("http://www.facebook.com/sharer/sharer.php?u=" + sendUrl);
+                }
 
-            function shareKakao() {
-                // 사용할 앱의 JavaScript 키 설정
-                Kakao.init('af93b4ff4b93dc7b210b5d807e256093');
+                function shareKakao() {
+                    // 사용할 앱의 JavaScript 키 설정
+                    Kakao.init('af93b4ff4b93dc7b210b5d807e256093');
 
-                // 카카오링크 버튼 생성
-                Kakao.Link.createDefaultButton({
-                    container: '#btnKakao', // 카카오공유버튼ID
-                    objectType: 'feed',
-                    content: {
-                        title: "C-MTBI", // 보여질 제목
-                        description: "체크카드로 보는 내 성격!", // 보여질 설명
-                        imageUrl: "http://54.180.134.106", // 콘텐츠 URL
-                        link: {
-                            mobileWebUrl: "https://developers.kakao.com",
-                            webUrl: "https://developers.kakao.com"
+                    // 카카오링크 버튼 생성
+                    Kakao.Link.createDefaultButton({
+                        container: '#btnKakao', // 카카오공유버튼ID
+                        objectType: 'feed',
+                        content: {
+                            title: "C-MTBI", // 보여질 제목
+                            description: "체크카드로 보는 내 성격!", // 보여질 설명
+                            imageUrl: "http://54.180.134.106", // 콘텐츠 URL
+                            link: {
+                                mobileWebUrl: "https://developers.kakao.com",
+                                webUrl: "https://developers.kakao.com"
+                            }
                         }
-                    }
-                });
-            }
-            /*
-                        Kakao.init('af93b4ff4b93dc7b210b5d807e256093');
-                        Kakao.Link.createDefaultButton({
-                            container: '#kakao-link-btn',
-                            objectType: 'feed',
-                            content: {
-                                title: 'C-MBTI',
-                                description: 'MBTI 카드추천',
-                                imageUrl: 'gugbab.JPG',
-                                link: {
-                                    mobileWebUrl: 'https://developers.kakao.com',
-                                    androidExecParams: 'test',
-                                },
-                            },
-                            social: {
-                                likeCount: 10,
-                                commentCount: 20,
-                                sharedCount: 30,
-                            },
-                            buttons: [{
-                                    title: '웹으로 이동',
-                                    link: {
-                                        mobileWebUrl: 'https://developers.kakao.com',
-                                    },
-                                },
-                                {
-                                    title: '앱으로 이동',
-                                    link: {
-                                        mobileWebUrl: 'https://developers.kakao.com',
-                                    },
-                                },
-                            ]
-                        });*/
-        </script>
-        <hr>
-        <h3 style="margin-left: 100px; margin-bottom: 10px; 
+                    });
+                }
+                // 화면에 크기에 맞게 가로 세로 스크롤 생기게 하는
+                function scrollX() {
+                    document.all.mainTable.scrollLeft = document.all.bottomLine.scrollLeft;
+                    document.all.topTable.scrollLeft = document.all.bottomLine.scrollLeft;
+                }
+
+                function scrollY() {
+                    document.all.leftTable.scrollTop = document.all.mainTable.scrollTop;
+                    document.all.mainTable.scrollTop = document.all.leftTable.scrollTop;
+                }
+            </script>
+            <hr>
+            <h3 style="margin-left: 100px; margin-bottom: 10px; 
             margin-top: 30px; text-align: left;">
-            C-MBTI 별 소비습관</h3>
-        <div class="main"></div>
-    </div>
+                C-MBTI 별 소비습관</h3>
+            <div class="main"></div>
+        </div>
 
 </body>
 
