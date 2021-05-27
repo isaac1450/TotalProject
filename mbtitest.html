@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+
+    <meta charset="UTF-8">
+    <title>MBTI 카드 추천</title>
+    <link type="text/css" rel="stylesheet" href="mbtitest.css">
+
+    <!-- 제이쿼리 불러오기 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+    <!-- slick 불러오기 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css">
+
+    <!-- slick 슬라이드 부분 동작 옵션 -->
+    <script>
+        $(function(){
+          $('#slick-div').slick({
+              infinite : false,
+              slidesToShow : 1,
+              speed : 300,
+              vertical: false,
+              nextArrow : $('.answer_item')
+          });
+        })
+    </script>
+
+    <!-- MBTI 검사 선택 버튼 클릭 시 작동 함수들 -->
+    <script language="javascript">
+        /* 전역 변수 정리 */
+        var mbti_count = [0, 0, 0, 0, 0, 0, 0, 0]; // MBTI 성향별 가중치를 저장하는 배열
+        var progressValue = 25; // 진행바에 있는 번호 원 위치 (초기 위치 : 25)
+        let mbti_result_value = ""; // MBTI 결과를 계산하여 성향을 저장하는 변수
+
+        /* MBTI 검사 버튼 클릭 시 작동하는 함수 */
+        function count(type)  {
+            // 결과를 표시할 element (진행바 번호 원)
+            const resultElement = document.getElementById('question_number');
+
+            // 현재 화면에 진행바 번호 원에 표시된 값
+            let number = resultElement.innerText;
+            if(parseInt(number) == 12)
+            {
+                number = 12;
+            }
+            else
+            {
+                number = parseInt(number) + 1;
+            }
+            
+            // 진행바 번호 원 위치 이동시키기
+            if(progressValue<=325)
+            {
+                progressValue += 30;
+            }
+            else
+            {
+                progressValue += 0;
+            }
+            
+            document.getElementById('gaugeCircle').style.left = progressValue + "px";
+
+            // 답변 선택에 따른 MBTI 값 가중치 더하기
+            if(type === 'E')
+            {
+                mbti_count[0] += 1;
+            }
+            else if(type === 'I') 
+            {
+                mbti_count[1] += 1;
+            }
+            else if(type === 'S') 
+            {
+                mbti_count[2] += 1;
+            }
+            else if(type === 'N') 
+            {
+                mbti_count[3] += 1;
+            }
+            else if(type === 'T') 
+            {
+                mbti_count[4] += 1;
+            }
+            else if(type === 'F') 
+            {
+                mbti_count[5] += 1;
+            }
+            else if(type === 'P') 
+            {
+                mbti_count[6] += 1;
+            }
+            else if(type === 'J') 
+            {
+                mbti_count[7] += 1;
+            }
+            
+            // 결과 출력
+            resultElement.innerText = number;
+          }
+        
+        /* MBTI 결과값을 전역변수 'mbti_result_value'에 저장하는 함수 */
+        function mbti_compute()  {
+            if(mbti_count[0] > mbti_count[1])
+            {
+                mbti_result_value += 'E';
+            }
+            else
+            {
+                mbti_result_value += 'I';
+            }
+            if(mbti_count[2] > mbti_count[3])
+            {
+                mbti_result_value += 'S';
+            }
+            else
+            {
+                mbti_result_value += 'N';
+            }
+            if(mbti_count[4] > mbti_count[5])
+            {
+                mbti_result_value += 'T';
+            }
+            else
+            {
+                mbti_result_value += 'F';
+            }
+            if(mbti_count[6] > mbti_count[7])
+            {
+                mbti_result_value += 'P';
+            }
+            else
+            {
+                mbti_result_value += 'J';
+            }
+            
+            // alert(mbti_result_value);
+            // MBTI 결과값을 확인하기 위해 임시로 넣은 알림창
+        }
+
+
+        function sendFunc(aValue) {
+          mbti_var = "mbtiresult";
+          location.href = "mbtisurvey.html?"+ mbti_result_value
+          alert(loaction.href);
+       
+	}
+    </script>
+</head>
+
+<body>
+    <div id="root">
+        <div id="wrapper">
+            <div class="question">
+
+                <!-- 진행 바 -->
+                <div class="question_gauge">
+                    <div id="gaugeLine" class="question_line"></div>
+                    <div id="gaugeCircle" class="question_circle" style="left: 25px;">
+                        <span id="question_number">1</span>
+                    </div>
+                </div>
+
+                <!-- MBTI 검사 질문과 선택지 -->
+                <div id="slick-div" style="outline: none; width: 500px;">
+                    <div>
+                        <div class="question_content">
+                            친구와의 술약속!<br>갑자기 친구의 고향 친구들이랑 다 같이 마시자고 한다
+                        </div>
+                        <ul class="question_answer">
+                            <li class="answer_item" onclick="count('E')" style="cursor: pointer">좋아! 놀사람은 많을 수록 재밌어~</li>
+                            <li class="answer_item" onclick="count('I')" style="cursor: pointer">어색하진 않으려나?. . 고민좀!</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="question_content">
+                            나와 너~무 잘맞는 화장품을 발견하였을 때
+                        </div>
+                        <ul class="question_answer">
+                            <li class="answer_item" onclick="count('E')" style="cursor: pointer">친구들에게 소개시켜줘야지! 이것 좀 봐봐 어떠냐면~</li>
+                            <li class="answer_item" onclick="count('I')" style="cursor: pointer">오 잘맞는데? 이 화장품 브랜드의 다른 상품도 알아본다</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="question_content">
+                            파티다 파티!!
+                        </div>
+                        <ul class="question_answer">
+                            <li class="answer_item" onclick="count('E')" style="cursor: pointer">뉴페이스들과 번쩍이는 조명! 클럽 분위기</li>
+                            <li class="answer_item" onclick="count('I')" style="cursor: pointer">절친들과 예쁜 잠옷입고 와인 딱! 파자마 홈파티~</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="question_content">
+                            취업준비 시작, 내가 가고싶은 회사는?
+                        </div>
+                        <ul class="question_answer">
+                            <li class="answer_item" onclick="count('S')" style="cursor: pointer">안정적이고 부족하지 않은 정도의<br>행복단란 월급쟁이 철밥통인 곳</li>
+                            <li class="answer_item" onclick="count('N')" style="cursor: pointer">실력에 따라 페이 스펙트럼이 다양한<br>내 능력을 발휘할 수 있는곳</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="question_content">
+                            난 친구 생일 선물로 이런거 주고 싶어!
+                        </div>
+                        <ul class="question_answer">
+                            <li class="answer_item" onclick="count('S')" style="cursor: pointer">기능적, 실용적인 선물</li>
+                            <li class="answer_item" onclick="count('N')" style="cursor: pointer">감성, 그 친구와 결이 어울리는 선물</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="question_content">
+                            아무생각도 안하고 멍 때릴 때
+                        </div>
+                        <ul class="question_answer">
+                            <li class="answer_item" onclick="count('S')" style="cursor: pointer">정말 아무생각도 들지 않는다</li>
+                            <li class="answer_item" onclick="count('N')" style="cursor: pointer">어떻게 아무생각도 안할 수가 있지?</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="question_content">
+                            슬픔을 나누면?
+                        </div>
+                        <ul class="question_answer">
+                            <li class="answer_item" onclick="count('T')" style="cursor: pointer">슬픈 사람이 둘이다</li>
+                            <li class="answer_item" onclick="count('F')" style="cursor: pointer">슬픔이 반이 된다</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="question_content">
+                            열심히 준비한 프로젝트,<br>내 실수로 인해 상사(or교수)에게<br>꾸중을 들었다면
+                        </div>
+                        <ul class="question_answer">
+                            <li class="answer_item" onclick="count('T')" style="cursor: pointer">힘들지 않아 거친 정글 속에 뛰어든 건 나니까 암오케</li>
+                            <li class="answer_item" onclick="count('F')" style="cursor: pointer">그냥 하염없이 눈물이나.. 그냥 하염없이 서글퍼져</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="question_content">
+                            상대방이 친구와 다퉈서 속상하다 할 때
+                        </div>
+                        <ul class="question_answer">
+                            <li class="answer_item" onclick="count('T')" style="cursor: pointer">헐 .. 뭐 땜에 다퉜어?</li>
+                            <li class="answer_item" onclick="count('F')" style="cursor: pointer">어떡해.. 속상했겠다ㅜㅜ</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="question_content">
+                            친구가 약속시간에 좀 늦는다고 한다
+                        </div>
+                        <ul class="question_answer">
+                            <li class="answer_item" onclick="count('P')" style="cursor: pointer">알았어 나도 그쯤 갈게~</li>
+                            <li class="answer_item" onclick="count('J')" style="cursor: pointer">또 늦네? 나갈 준비 다 했는데 뭐하지</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="question_content">
+                            다*소, 올*브영 을 가다!
+                        </div>
+                        <ul class="question_answer">
+                            <li class="answer_item" onclick="count('P')" style="cursor: pointer">구매 목록을 메모해놓는다.</li>
+                            <li class="answer_item" onclick="count('J')" style="cursor: pointer">일단 가서 이거 살건데 저것도 필요하면 사고..<br>어! 이거 나름 필요할지도?</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="question_content">
+                            시험기간, 내 공부방식과 목표는?
+                        </div>
+                        <ul class="question_answer">
+                            <li class="answer_item" onclick="count('P'); mbti_compute(); sendFunc();" style="cursor: pointer">벼락치기로 평타이상 목표</li>
+                            <li class="answer_item" onclick="count('J'); mbti_compute(); sendFunc();" style="cursor: pointer">매일 꾸준히 준비해서 A+ 목표</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
