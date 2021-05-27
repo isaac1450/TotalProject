@@ -1,12 +1,12 @@
     var mbt;
     $(document).ready(function () {
-       // var mbta = location.href.split("?");
-       // history.pushState(null, null, mbta[0]);
-       // mbt = mbta[1];
-       // if(mbt == undefined)
-      //  {location.href ="./"
-    //
-       // }
+        var mbta = location.href.split("?");
+        history.pushState(null, null, mbta[0]);
+        mbt = mbta[1];
+        if(mbt == undefined)
+        {location.href ="./"
+    
+        }
         
         $(".btn_danger1").hover(function () {
             x = $(this).children().val()
