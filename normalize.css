@@ -59,6 +59,8 @@ main {
   display: block;
 }
 
+
+
 /**
  * Correct the font size and margin on `h1` elements within `section` and
  * `article` contexts in Chrome, Firefox, and Safari.
@@ -194,23 +196,45 @@ main {
 /*결과창 목록 글씨*/
 .resulth3 {
   font-size: 20px;
-  font-weight: 00;
-  line-height: normal;
-  letter-spacing: -.5px;
+  text-align: left;
   margin-left: 70px;
-  margin-right: 60px;
-  margin-bottom: 20px;
+  margin-top: 40px;
+  margin-bottom: 40px;
 }
 
 /*결과창 회색밑바탕*/
 .main {
   width: 335px;
-  height: 350px;
+  height: 390px;
   border-radius: 20px;
   margin: auto;
   text-align: center;
   background-color: #f7f7f7;
   margin-bottom: 45px;
+}
+
+.survey_dis {
+  width: 335px;
+  height: 430px;
+  border-radius: 20px;
+  margin: auto;
+  text-align: center;
+  background-color: #f7f7f7;
+  margin-bottom: 3vh;
+
+}
+
+/*파이차트, 회색빝바탕안에 div 2개 가로정렬*/
+.survey_common {
+  display: inline-block;
+  width: 160px;
+  height: 160px;
+  /*border: 1px solid rgb(255, 255, 255);*/
+  margin-top: 30px;
+}
+
+.main_white {
+  height: 100px;
 }
 
 /*카드23, 회색빝바탕안에 div 2개 가로정렬*/
@@ -255,6 +279,13 @@ main {
   width: 250px;
   height: 170px;
   margin-top: 30px;
+  object-fit: contain;
+}
+
+.card_popup {
+  width: 250px;
+  height: 170px;
+  margin-top: 0px;
   object-fit: contain;
 }
 
@@ -316,7 +347,7 @@ input[id*="popup"]+label+div>div {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 400px;
+  width: 350px;
   height: 500px;
   background: #fff;
   z-index: 2;
@@ -354,27 +385,80 @@ input[id*="popup"]:checked+label+div {
   visibility: visible;
 }
 
+.btn-like .heart-shape {
+  display: inline;
+  color: red;
+}
+
+.like_text {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.btn-like {
+  font-size: 18px;
+  border: palevioletred;
+  font-weight: bold;
+  color: red;
+  background-color: inherit;
+}
+
 .card_contents {
   font-size: 15px;
   font-weight: 00;
   line-height: normal;
   letter-spacing: -.5px;
-  margin-left: 30px;
-  margin-right: 30px;
-  margin-top: 40px;
-  margin-bottom: 40px;
+  margin-left: 10px;
+  margin-right: 0px;
+  margin-top: 2px;
+  margin-bottom: 10px;
+}
+
+.card_name {
+  text-align: center;
+  font-size: 27px;
+  font-weight: bold;
+  color: black;
+}
+
+.card_company {
+  margin-top: -28px;
+  text-align: center;
+  font-size: 17px;
+  color: black;
+}
+
+.main_benefit {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  color: #dd5347;
+}
+
+.card_text_bold {
+  text-align: left;
+  font-size: 15px;
+  font-weight: bold;
+  color: black;
+}
+
+.card_text {
+  text-align: left;
+  font-size: 15px;
+  color: black;
 }
 
 .pop_scroll {
   overflow-y: scroll;
   height: 410px;
   margin-top: 30px;
-  margin-left: 30px;
-  margin-right: 30px;
+  margin-left: 20px;
+  margin-right: 20px;
 
 }
 
-.like{
+.like {
   margin-top: 20px;
 }
 

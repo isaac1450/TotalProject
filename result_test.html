@@ -21,12 +21,15 @@
     <title>Document</title>
     <link rel="stylesheet" href="normalize.css">
     <link rel="stylesheet" href="wrapper.css">
+    <link rel="" href="share.js">
     <!-- js 설정 -->
     <script type='text/javascript' src="https://developers.kakao.com/sdk/js/kakao.js"></script>
     <link rel="stylesheet" type="text/css" href="semantic/semantic.css">
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
-        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="semantic/semantic.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.3.0/chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/emn178/chartjs-plugin-labels/src/chartjs-plugin-labels.js
+    "></script>
 </head>
 
 <body>
@@ -210,67 +213,124 @@
         <div class="main">
             <input type="checkbox" id="popup">
             <label for="popup">
-                <img class="card_1" src="card_img/nori.png" alt="nori"></label>
+                <img class="card_1 _card_1" src="card_img/nori.png" alt="nori"></label>
             <div>
                 <div>
                     <div class="pop_scroll">
-                        <h4 class='card_contents'>
-                            뀨뀨잉뀨잉뀨뀨잉뀨뀨잉뀨잉뀨뀨잉뀨잉뀨뀨잉뀨잉뀨뀨잉뀨잉</h4>
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illo provident non alias cumque amet
-                        nesciunt eligendi pariatur ab ad itaque voluptatum, consequatur vitae aliquam dignissimos
-                        corporis eum corrupti! Laudantium, sit?
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas aut laborum esse quos ab quam
-                        expedita molestiae! Quaerat ullam odit exercitationem sit, mollitia at. Impedit autem quae
-                        doloribus deleniti quis.
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet numquam expedita explicabo dicta
-                        optio, sapiente incidunt fugit nostrum beatae labore, sunt praesentium modi voluptatibus! Sed
-                        porro pariatur error culpa ipsum.
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur dolore quas illum, modi
-                        obcaecati itaque temporibus voluptate, repudiandae voluptates cum doloribus tempore id a eaque.
-                        Aut minus consectetur voluptatibus esse!
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim error, deserunt eum libero
-                        aspernatur veritatis ipsa est, nam odio recusandae rem quaerat quidem reprehenderit eos nulla
-                        dolores quibusdam nihil aperiam.
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Non nemo, minus quae enim voluptatibus
-                        deleniti ullam quam amet maiores iste voluptatum suscipit earum dignissimos repellat. Nobis
-                        itaque nemo neque dicta?
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora numquam recusandae, nostrum
-                        ullam, obcaecati odit quam nulla sint atque quis ipsa modi vitae quasi omnis eos consequuntur
-                        assumenda unde illum?
+                        <div class='card_contents'>
+                            <!--팝업창 내용 시작-->
+                            <img class="card_popup _card_1" src="card_img/nori.png" alt="nori"></label>
+                            <!--카드 이미지-->
+                            <p class='card_name card1_name'>노리체크카드</p>
+                            <!--카드 이름-->
+                            <p class='card_company card1_company'>KB국민카드</p>
+                            <!--카드 회사-->
+                            <p class='main_benefit'>- 주요혜택 -</p>
+			    <div class = "card1_benefit">
+                                <!--혜택 수만큼
+                               // for (var i = 0; i < 5; i++) {
+                                   var cardbold = '프리미엄 서비스';
+                                    var cardtext = 'VISA 플래티넘/Young Premium 서비스 제공';
+                                    document.write("<p class='card_text_bold'>", cardbold, "</p>", );
+                                    document.write("<p class='card_text'>", cardtext, "</p><hr><br>");
+				    }-->
+			    </div>
+                        </div>
                     </div>
                     <label for="popup"></label>
-                    <div>
-                        <input class="like" type="checkbox" value="1" name="like">좋아요
-                        <div class="ui labeled button" tabindex="0">
-                            <div class="ui red button">
-                                <i class="heart icon" type="checkbox" value="1" name="like"></i> 좋아요
-                            </div>
-                            <a class="ui basic red left pointing label">
-                                123
-                            </a>
+                    <div
+                        style="  justify-content: center;  align-items: center;border: 0px solid red; height: 25px; width: 60px; margin-left: 150px;margin-top: 10px;">
+                        <div style="border: 1px; float: left;">
+                            <button id="jsmode" class="btn-like" onclick="showSum()">♡</button>
                         </div>
+                        <div id='my_div' style="border: 1px ; float: left;" class="like_text">
+                            <p id="num" class="like_text"> 123</p>
+                        </div>
+
+                        <script>
+                            const mode = document.getElementById("jsmode");
+                            var element = document.getElementById("my_div");
+
+                            mode.addEventListener("click", function () {
+                                if (mode.innerText == "♡") {
+                                    mode.innerText = "♥";
+                                    document.getElementsById("my_div").value = ori;
+                                } else {
+                                    mode.innerText = "♡";
+                                }
+                            });
+
+                            var ori_num = 123;
+                            var ori = 124;
+                            var showSum = function () {
+
+                                document.getElementsByTagName("my_div").value = ori;
+
+                            }
+                            $(".btn-like").on("click", function (e) {
+                                var button = $(e.currentTarget || e.target)
+                                var likeCount = button.find(".like-count")
+                                var heartShape = button.find(".heart-shape")
+                                $.post("./like_proc.php", {
+                                    articleId: button.data("articleId")
+                                }, function (res) {
+                                    var addCount = (res == "like" ? 1 : res == "unlike" ? -1 : 0)
+                                    likeCount.text(+likeCount.text() + addCount)
+                                    heartShape.text(res == "like" ? "♥" : res == "unlike" ? "♡" : "♡")
+                                })
+
+                            })
+                        </script>
                     </div>
 
                 </div>
                 <label for="popup"></label>
+
+
             </div>
-            <h3>노리체크카드</h3>
+            <h3 class="card1_name">노리체크카드</h3>
 
             <input type="checkbox" id="popup_1">
             <label for="popup_1">
                 <div class="main_1 main_common">
-                    <img class="card_23" src="card_img/cookie.png" alt="cookie">
+                    <img class="card_23 _card_2" src="card_img/cookie.png" alt="cookie">
                 </div>
             </label>
             <div>
                 <div>
                     <div class="pop_scroll">
-                        <h4 class='card_contents'>
-                            anjdi어어 두번째카드
+                        <div class='card_contents'>
+                            <!--팝업창 내용 시작-->
+                            <img class="card_popup _card_2" src="card_img/cookie.png" alt="nori"></label>
+                            <!--카드 이미지-->
+                            <p class='card_name'>노리체크카드</p>
+                            <!--카드 이름-->
+                            <p class='card_company'>KB국민카드</p>
+                            <!--카드 회사-->
+                            <p class='main_benefit'>- 주요혜택 -</p>
+			    <div class="card2_benefit">
+                         <!--   <script>
+                                //혜택 수만큼
+                                for (var i = 0; i < 5; i++) {
+                                    var cardbold = '할인';
+                                    var cardtext = '[기본할인] 국내외 가맹점 이용금액의 0.7% 청구 할인';
+                                    document.write("<p class='card_text_bold'>", cardbold, "</p>", );
+                                    document.write("<p class='card_text'>", cardtext, "</p><hr><br>");
+                                }
+                            </script>
+                            <p class='card_text_bold'>프리미엄 서비스</p>
+                            <p class='card_text'>VISA 플래티넘/Young Premium 서비스 제공</p>
+                            <hr><br>
+                            <p class='card_text_bold'>할인</p>
+                            <p class='card_text'>[기본할인] 국내외 가맹점 이용금액의 0.7% 청구 할인</p>
+                            <hr><br>
+			    -->
+			    </div>
+                        </div>
                     </div>
                     <label for="popup_1"></label>
                     <div>
-                        <input class="like" type="checkbox" value="1" name="like">좋아요
+
                         <div class="ui labeled button" tabindex="0">
                             <div class="ui red button">
                                 <i class="heart icon" type="checkbox" value="1" name="like"></i> 좋아요
@@ -288,14 +348,40 @@
             <input type="checkbox" id="popup_2">
             <label for="popup_2">
                 <div class="main_2 main_common">
-                    <img class="card_23" src="card_img/dream.png" alt="dream">
+                    <img class="card_23 _card_3" src="card_img/dream.png" alt="dream">
                 </div>
             </label>
             <div>
                 <div>
                     <div class="pop_scroll">
-                        <h4 class='card_contents'>
-                            세번째카드33333333
+                        <div class='card_contents'>
+                            <!--팝업창 내용 시작-->
+                            <img class="card_popup _card_3" src="card_img/dream.png" alt="nori"></label>
+                            <!--카드 이미지-->
+                            <p class='card_name'>노리체크카드</p>
+                            <!--카드 이름-->
+                            <p class='card_company'>KB국민카드</p>
+                            <!--카드 회사-->
+                            <p class='main_benefit'>- 주요혜택 -</p>
+			    <div class="card3_benefit">
+			    <!-- <script>
+                                //혜택 수만큼
+                                for (var i = 0; i < 5; i++) {
+                                    var cardbold = '할인';
+                                    var cardtext = '[기본할인] 국내외 가맹점 이용금액의 0.7% 청구 할인';
+                                    document.write("<p class='card_text_bold'>", cardbold, "</p>", );
+                                    document.write("<p class='card_text'>", cardtext, "</p><hr><br>");
+                                }
+                            </script>
+                            <p class='card_text_bold'>프리미엄 서비스</p>
+                            <p class='card_text'>VISA 플래티넘/Young Premium 서비스 제공</p>
+                            <hr><br>
+                            <p class='card_text_bold'>할인</p>
+                            <p class='card_text'>[기본할인] 국내외 가맹점 이용금액의 0.7% 청구 할인</p>
+                            <hr><br>
+			    -->
+			</div>
+                        </div>
                     </div>
                     <label for="popup_2"></label>
                     <div>
@@ -313,16 +399,16 @@
                 </div>
                 <label for="popup_2"></label>
             </div>
+        </div>
+        <!--회색바탕 카드 끝 -->
 
-            <!--회색바탕 카드 끝 -->
-
-            <h3 class="resulth3">결과 공유하기</h3><br>
-            <div class="sns">
-                <a id="btnKakao" class="link-icon kakao" href="javascript:shareKakao();">&emsp;&emsp;&emsp;</a>
-                <a id="btnFacebook" class="link-icon facebook" href="javascript:shareFacebook();">&emsp;&emsp;&emsp;</a>
-                <a id="btnTwitter" class="link-icon twitter" href="javascript:shareTwitter();">&emsp;&emsp;&emsp;</a>
-            </div>
-            <!--
+        <h3 class="resulth3">결과 공유하기</h3><br>
+        <div class="sns">
+            <a id="btnKakao" class="link-icon kakao" href="javascript:shareKakao();">&emsp;&emsp;&emsp;</a>
+            <a id="btnFacebook" class="link-icon facebook" href="javascript:shareFacebook();">&emsp;&emsp;&emsp;</a>
+            <a id="btnTwitter" class="link-icon twitter" href="javascript:shareTwitter();">&emsp;&emsp;&emsp;</a>
+        </div>
+        <!--
             <div class="sns_1 sns_order">
                 <a id="kakao-link-btn" href="javascript:;">
                     <img class="sns_img" src="kakaolink_btn.png" />
@@ -338,55 +424,289 @@
         <a id="btnTwitter" class="link-icon twitter" href="javascript:shareTwitter();">트위터</a>
         <a id="btnFacebook" class="link-icon facebook" href="javascript:shareFacebook();">페이스북</a>
         -->
-            <script>
-                function shareTwitter() {
-                    var sendText = "C-MBTI"; // 전달할 텍스트
-                    var sendUrl = "http://54.180.134.106"; // 전달할 URL
-                    window.open("https://twitter.com/intent/tweet?text=" + sendText + "&url=" + sendUrl);
-                }
+        <script>
+            function shareTwitter() {
+                var sendText = "C-MBTI"; // 전달할 텍스트
+                var sendUrl = "http://54.180.134.106"; // 전달할 URL
+                window.open("https://twitter.com/intent/tweet?text=" + sendText + "&url=" + sendUrl);
+            }
 
-                function shareFacebook() {
-                    var sendUrl = "http://54.180.134.106"; // 전달할 URL
-                    window.open("http://www.facebook.com/sharer/sharer.php?u=" + sendUrl);
-                }
+            function shareFacebook() {
+                var sendUrl = "http://54.180.134.106"; // 전달할 URL
+                window.open("http://www.facebook.com/sharer/sharer.php?u=" + sendUrl);
+            }
 
-                function shareKakao() {
-                    // 사용할 앱의 JavaScript 키 설정
-                    Kakao.init('af93b4ff4b93dc7b210b5d807e256093');
+            function shareKakao() {
+                // 사용할 앱의 JavaScript 키 설정
+                Kakao.init('af93b4ff4b93dc7b210b5d807e256093');
 
-                    // 카카오링크 버튼 생성
-                    Kakao.Link.createDefaultButton({
-                        container: '#btnKakao', // 카카오공유버튼ID
-                        objectType: 'feed',
-                        content: {
-                            title: "C-MTBI", // 보여질 제목
-                            description: "체크카드로 보는 내 성격!", // 보여질 설명
-                            imageUrl: "http://54.180.134.106", // 콘텐츠 URL
-                            link: {
-                                mobileWebUrl: "https://developers.kakao.com",
-                                webUrl: "https://developers.kakao.com"
+                // 카카오링크 버튼 생성
+                Kakao.Link.createDefaultButton({
+                    container: '#btnKakao', // 카카오공유버튼ID
+                    objectType: 'feed',
+                    content: {
+                        title: "C-MTBI", // 보여질 제목
+                        description: "체크카드로 보는 내 성격!", // 보여질 설명
+                        imageUrl: "http://54.180.134.106", // 콘텐츠 URL
+                        link: {
+                            mobileWebUrl: "https://developers.kakao.com",
+                            webUrl: "https://developers.kakao.com"
+                        }
+                    }
+                });
+            }
+            // 화면에 크기에 맞게 가로 세로 스크롤 생기게 하는
+            function scrollX() {
+                document.all.mainTable.scrollLeft = document.all.bottomLine.scrollLeft;
+                document.all.topTable.scrollLeft = document.all.bottomLine.scrollLeft;
+            }
+
+            function scrollY() {
+                document.all.leftTable.scrollTop = document.all.mainTable.scrollTop;
+                document.all.mainTable.scrollTop = document.all.leftTable.scrollTop;
+            }
+        </script>
+        <hr>
+        <h3 class="resulth3">C-MBTI 별 소비습관</h3>
+        <div class="survey_dis">
+            <div class="survey_dis_1 survey_common">
+                <canvas id="myChart" width="100" height="100"></canvas>
+                <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+                <script src="https://cdn.jsdelivr.net/gh/emn178/chartjs-plugin-labels/src/chartjs-plugin-labels.js">
+                </script>
+                <script>
+                    var ctx = document.getElementById('myChart');
+                    var data = {
+                        labels: [ //데이터 값
+                            '30%',
+                            '50%',
+                            '70%',
+                            '70%~'
+                        ],
+                        datasets: [{
+                            label: 'My First Dataset',
+                            data: [300, 100, 100, 200], //각각 데이터 수치
+                            backgroundColor: [ //차트 색깔
+                                '#17AD96',
+                                '#E82663',
+                                '#EE6D50',
+                                '#FFC733'
+                            ],
+                            hoverOffset: 0
+                        }]
+                    };
+                    var myChart = new Chart(ctx, {
+                        type: 'pie',
+                        data: data,
+                        options: {
+                            legend: {
+                                display: false
+                            },
+
+                            title: {
+                                display: true,
+                                text: '월급대비 소비량',
+                                position: 'top',
+                                fontSize: 13,
+                                fontColor: '#000'
+                            },
+                            plugins: {
+                                labels: [{
+                                    render: 'label',
+                                    fontSize: 11,
+                                    fontStyle: '',
+                                    fontColor: '#FFF'
+                                }]
                             }
                         }
                     });
-                }
-                // 화면에 크기에 맞게 가로 세로 스크롤 생기게 하는
-                function scrollX() {
-                    document.all.mainTable.scrollLeft = document.all.bottomLine.scrollLeft;
-                    document.all.topTable.scrollLeft = document.all.bottomLine.scrollLeft;
-                }
+                </script>
+            </div>
+            <div class="survey_dis_2 survey_common">
+                <canvas id="myChart1" width="100" height="100"></canvas>
+                <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+                <script src="https://cdn.jsdelivr.net/gh/emn178/chartjs-plugin-labels/src/chartjs-plugin-labels.js">
+                </script>
+                <script>
+                    var ctx = document.getElementById('myChart1');
+                    var data = {
+                        labels: [
+                            '30만',
+                            '50만',
+                            '70만',
+                            '70만~'
+                        ],
+                        datasets: [{
+                            label: 'My First Dataset',
+                            data: [200, 150, 100, 150],
+                            backgroundColor: [
+                                '#815DA4',
+                                '#D5D746',
+                                '#D12189',
+                                '#FFC733'
+                            ],
+                            hoverOffset: 0
+                        }]
+                    };
+                    var myChart = new Chart(ctx, {
+                        type: 'pie',
+                        data: data,
+                        options: {
+                            legend: {
+                                display: false
+                            },
 
-                function scrollY() {
-                    document.all.leftTable.scrollTop = document.all.mainTable.scrollTop;
-                    document.all.mainTable.scrollTop = document.all.leftTable.scrollTop;
-                }
+                            title: {
+                                display: true,
+                                text: '식비',
+                                position: 'top',
+                                fontSize: 13,
+                                fontColor: '#000'
+                            },
+                            plugins: {
+                                labels: [{
+                                    render: 'label',
+                                    fontSize: 11,
+                                    fontColor: '#FFF'
+                                }]
+                            }
+                        }
+                    });
+                </script>
+            </div>
+
+            <div style="width: 320px;margin-top:30px; margin-left: 10px;">
+                <canvas id='myChart2' width="2" height="1"></canvas>
+            </div>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.3.0/chart.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/gh/emn178/chartjs-plugin-labels/src/chartjs-plugin-labels.js">
             </script>
+            <script>
+                var ctx = document.getElementById('myChart2').getContext('2d');
+                var jbAry = [ // 데이터 값
+                    ['1', '2', '3', '4'], //의류
+                    ['4', '2', '3', '1'], //통신
+                    ['3', '4', '1', '2'] //교통
+                ];
+
+                var data = {
+                    labels: ['의류', '통신', '교통'],
+                    datasets: [{
+                            axis: 'y', // 가료형 막대로 바꾸는 옵션
+                            label: '1-block',
+                            data: [jbAry[0][0], jbAry[1][0], jbAry[2][0]],
+                            backgroundColor: [
+                                '#02B0B5',
+                                '#02B0B5',
+                                '#02B0B5',
+                            ],
+                            barThickness: 20, //바 굵기
+                            categoryPercentage: 1.0,
+                            barPercentage: 1.0,
+                            borderWidth: 1.0,
+                            borderColor: 'white'
+                        },
+                        {
+                            label: '2-block',
+                            data: [jbAry[0][1], jbAry[1][1], jbAry[2][1]],
+                            backgroundColor: [
+                                '#F7D220',
+                                '#F7D220',
+                                '#F7D220',
+                            ],
+                            barThickness: 20, //바 굵기
+                            categoryPercentage: 1.0,
+                            barPercentage: 1.0,
+                            borderWidth: 1.0,
+                            borderColor: 'white'
+                        },
+                        {
+                            label: '3-block',
+                            data: [jbAry[0][2], jbAry[1][2], jbAry[2][2]],
+                            backgroundColor: [
+                                '#F85558',
+                                '#F85558',
+                                '#F85558',
+                            ],
+                            barThickness: 20, //바 굵기
+                            categoryPercentage: 1.0,
+                            barPercentage: 1.0,
+                            borderWidth: 1.0,
+                            borderColor: 'white'
+                        },
+                        {
+                            label: '4-block',
+                            data: [jbAry[0][3], jbAry[1][3], jbAry[2][3]],
+                            backgroundColor: [
+                                '#2568FD',
+                                '#2568FD',
+                                '#2568FD',
+                            ],
+                            barThickness: 20, //바 굵기
+                            categoryPercentage: 1.0,
+                            barPercentage: 1.0,
+                            borderWidth: 1.0,
+                            borderColor: 'white'
+                        },
+                    ]
+                };
+                var stackedBar = new Chart(ctx, {
+                    type: 'bar',
+                    data: data,
+                    options: {
+                        plugins: {
+                            legend: {
+                                display: false,
+                                labels: {
+                                    // This more specific font property overrides the global property
+                                    font: {
+                                        size: 14
+                                    }
+                                }
+                            },
+
+                        },
+                        labels: {
+                            fontSize: 20
+                        },
+
+                        //responsive: false,
+                        indexAxis: 'y',
+                        scales: {
+                            x: {
+                                stacked: true,
+                                ticks: {
+                                    display: false
+                                },
+                                grid: {
+                                    color: '#f7f7f7'
+                                },
+                                offset: true
+                            },
+                            y: {
+                                stacked: true,
+                                grid: {
+                                    color: '#f7f7f7'
+                                },
+
+
+                            }
+                        },
+                    },
+                });
+            </script>
+        </div>
+        <div class="main_white">
+            <br><br><br>
             <hr>
-            <h3 style="margin-left: 100px; margin-bottom: 10px; 
-            margin-top: 30px; text-align: left;">
-                C-MBTI 별 소비습관</h3>
-            <div class="main"></div>
         </div>
 
-</body>
 
+
+    </div>
+
+
+
+</body>
+<script src="/result.js"></script>
 </html>
