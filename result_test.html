@@ -18,7 +18,7 @@
     <meta name="twitter:description" content="미리보기 설명" />
     <meta name="twitter:image" content="미리보기 이미지 주소" />
 
-    <title>Document</title>
+    <title>C-MBTI</title>
     <link rel="stylesheet" href="normalize.css">
     <link rel="stylesheet" href="wrapper.css">
     <link rel="" href="share.js">
@@ -27,9 +27,7 @@
     <link rel="stylesheet" type="text/css" href="semantic/semantic.css">
     <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="semantic/semantic.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.3.0/chart.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/emn178/chartjs-plugin-labels/src/chartjs-plugin-labels.js
-    "></script>
+
 </head>
 
 <body>
@@ -45,12 +43,12 @@
         }
     </script>
     <div style="overflow-y:scroll; height:inherit">
-        <a href="http://54.180.134.106">
-            <!--클릭 페이지전환-->
-            <div class="Home_topbar">
-                <span class="Home_btn-text__2zeAC">Go main page button</span>
-            </div>
-        </a>
+        <div class="Home_topbar">
+            <a href="http://54.180.134.106">
+                <!--클릭 페이지전환-->
+                <span>Go to main page</span>
+            </a>
+        </div>
 
         <h1 class="mbti_result"></h1>
         <script>
@@ -213,7 +211,13 @@
         <div class="main">
             <input type="checkbox" id="popup">
             <label for="popup">
-                <img class="card_1 _card_1" src="card_img/nori.png" alt="nori"></label>
+                <ul>
+                    <li>
+                        <img class="card_1 _card_1" src="card_img/nori.png" alt="nori">
+                    </li>
+                </ul>
+
+            </label>
             <div>
                 <div>
                     <div class="pop_scroll">
@@ -226,74 +230,35 @@
                             <p class='card_company card1_company'>KB국민카드</p>
                             <!--카드 회사-->
                             <p class='main_benefit'>- 주요혜택 -</p>
-			    <div class = "card1_benefit">
-                                <!--혜택 수만큼
-                               // for (var i = 0; i < 5; i++) {
-                                   var cardbold = '프리미엄 서비스';
-                                    var cardtext = 'VISA 플래티넘/Young Premium 서비스 제공';
-                                    document.write("<p class='card_text_bold'>", cardbold, "</p>", );
-                                    document.write("<p class='card_text'>", cardtext, "</p><hr><br>");
-				    }-->
-			    </div>
+                            <div class="card1_benefit">
+
+                            </div>
                         </div>
                     </div>
-                    <label for="popup"></label>
-                    <div
-                        style="  justify-content: center;  align-items: center;border: 0px solid red; height: 25px; width: 60px; margin-left: 150px;margin-top: 10px;">
+                    <label for="popup">×</label>
+                    <div class="heart_location">
                         <div style="border: 1px; float: left;">
-                            <button id="jsmode" class="btn-like" onclick="showSum()">♡</button>
+                            <button id="heart1" class="btn-like">♡</button>
                         </div>
-                        <div id='my_div' style="border: 1px ; float: left;" class="like_text">
-                            <p id="num" class="like_text"> 123</p>
+                        <div id='num_div' style="border: 1px ; float: left;" class="like_text">
+                            <p id="num" class="like_text num1"> 123</p>
                         </div>
 
-                        <script>
-                            const mode = document.getElementById("jsmode");
-                            var element = document.getElementById("my_div");
-
-                            mode.addEventListener("click", function () {
-                                if (mode.innerText == "♡") {
-                                    mode.innerText = "♥";
-                                    document.getElementsById("my_div").value = ori;
-                                } else {
-                                    mode.innerText = "♡";
-                                }
-                            });
-
-                            var ori_num = 123;
-                            var ori = 124;
-                            var showSum = function () {
-
-                                document.getElementsByTagName("my_div").value = ori;
-
-                            }
-                            $(".btn-like").on("click", function (e) {
-                                var button = $(e.currentTarget || e.target)
-                                var likeCount = button.find(".like-count")
-                                var heartShape = button.find(".heart-shape")
-                                $.post("./like_proc.php", {
-                                    articleId: button.data("articleId")
-                                }, function (res) {
-                                    var addCount = (res == "like" ? 1 : res == "unlike" ? -1 : 0)
-                                    likeCount.text(+likeCount.text() + addCount)
-                                    heartShape.text(res == "like" ? "♥" : res == "unlike" ? "♡" : "♡")
-                                })
-
-                            })
-                        </script>
                     </div>
-
                 </div>
                 <label for="popup"></label>
-
-
             </div>
             <h3 class="card1_name">노리체크카드</h3>
 
             <input type="checkbox" id="popup_1">
             <label for="popup_1">
                 <div class="main_1 main_common">
-                    <img class="card_23 _card_2" src="card_img/cookie.png" alt="cookie">
+                    <ul>
+                        <li>
+                            <img class="card_23 _card_2" src="card_img/cookie.png" alt="cookie">
+                        </li>
+                    </ul>
+
                 </div>
             </label>
             <div>
@@ -303,44 +268,40 @@
                             <!--팝업창 내용 시작-->
                             <img class="card_popup _card_2" src="card_img/cookie.png" alt="nori"></label>
                             <!--카드 이미지-->
-                            <p class='card_name'>노리체크카드</p>
+                            <p class='card_name card2_name'>노리체크카드</p>
                             <!--카드 이름-->
-                            <p class='card_company'>KB국민카드</p>
+                            <p class='card_company card2_company'>KB국민카드</p>
                             <!--카드 회사-->
                             <p class='main_benefit'>- 주요혜택 -</p>
-			    <div class="card2_benefit">
-                         <!--   <script>
-                                //혜택 수만큼
-                                for (var i = 0; i < 5; i++) {
-                                    var cardbold = '할인';
-                                    var cardtext = '[기본할인] 국내외 가맹점 이용금액의 0.7% 청구 할인';
-                                    document.write("<p class='card_text_bold'>", cardbold, "</p>", );
-                                    document.write("<p class='card_text'>", cardtext, "</p><hr><br>");
-                                }
-                            </script>
-                            <p class='card_text_bold'>프리미엄 서비스</p>
-                            <p class='card_text'>VISA 플래티넘/Young Premium 서비스 제공</p>
-                            <hr><br>
-                            <p class='card_text_bold'>할인</p>
-                            <p class='card_text'>[기본할인] 국내외 가맹점 이용금액의 0.7% 청구 할인</p>
-                            <hr><br>
-			    -->
-			    </div>
-                        </div>
-                    </div>
-                    <label for="popup_1"></label>
-                    <div>
+                            <div class="card2_benefit">
 
-                        <div class="ui labeled button" tabindex="0">
-                            <div class="ui red button">
-                                <i class="heart icon" type="checkbox" value="1" name="like"></i> 좋아요
                             </div>
-                            <a class="ui basic red left pointing label">
-                                123
-                            </a>
                         </div>
                     </div>
+                    <label for="popup_1">×</label>
+                    <div class="heart_location">
+                        <div style="border: 1px; float: left;">
+                            <button id="heart2" class="btn-like">♡</button>
+                        </div>
+                        <div id='num_div' style="border: 1px ; float: left;" class="like_text">
+                            <p id="num" class="like_text num2"> 123</p>
+                        </div>
 
+                        <script>
+                            const heart2 = document.getElementById("heart2");
+                            var element = document.getElementById("num_div");
+
+                            heart2.addEventListener("click", function () {
+                                if (heart2.innerText == "♡") {
+                                    heart2.innerText = "♥";
+                                    document.getElementsById("num_div").value = ori;
+                                } else {
+                                    heart2.innerText = "♡";
+                                }
+                            });
+                        </script>
+			-->
+                    </div>
                 </div>
                 <label for="popup_1"></label>
             </div>
@@ -348,7 +309,11 @@
             <input type="checkbox" id="popup_2">
             <label for="popup_2">
                 <div class="main_2 main_common">
-                    <img class="card_23 _card_3" src="card_img/dream.png" alt="dream">
+                    <ul>
+                        <li>
+                            <img class="card_23 _card_3" src="card_img/dream.png" alt="dream">
+                        </li>
+                    </ul>
                 </div>
             </label>
             <div>
@@ -358,41 +323,23 @@
                             <!--팝업창 내용 시작-->
                             <img class="card_popup _card_3" src="card_img/dream.png" alt="nori"></label>
                             <!--카드 이미지-->
-                            <p class='card_name'>노리체크카드</p>
+                            <p class='card_name card3_name'>노리체크카드</p>
                             <!--카드 이름-->
-                            <p class='card_company'>KB국민카드</p>
+                            <p class='card_company card3_company'>KB국민카드</p>
                             <!--카드 회사-->
                             <p class='main_benefit'>- 주요혜택 -</p>
-			    <div class="card3_benefit">
-			    <!-- <script>
-                                //혜택 수만큼
-                                for (var i = 0; i < 5; i++) {
-                                    var cardbold = '할인';
-                                    var cardtext = '[기본할인] 국내외 가맹점 이용금액의 0.7% 청구 할인';
-                                    document.write("<p class='card_text_bold'>", cardbold, "</p>", );
-                                    document.write("<p class='card_text'>", cardtext, "</p><hr><br>");
-                                }
-                            </script>
-                            <p class='card_text_bold'>프리미엄 서비스</p>
-                            <p class='card_text'>VISA 플래티넘/Young Premium 서비스 제공</p>
-                            <hr><br>
-                            <p class='card_text_bold'>할인</p>
-                            <p class='card_text'>[기본할인] 국내외 가맹점 이용금액의 0.7% 청구 할인</p>
-                            <hr><br>
-			    -->
-			</div>
+                            <div class="card3_benefit">
+
+                            </div>
                         </div>
                     </div>
-                    <label for="popup_2"></label>
-                    <div>
-                        <input class="like" type="checkbox" value="1" name="like">좋아요
-                        <div class="ui labeled button" tabindex="0">
-                            <div class="ui red button">
-                                <i class="heart icon" type="checkbox" value="1" name="like"></i> 좋아요
-                            </div>
-                            <a class="ui basic red left pointing label">
-                                123
-                            </a>
+                    <label for="popup_2">×</label>
+                    <div class="heart_location">
+                        <div style="border: 1px; float: left;">
+                            <button id="heart3" class="btn-like">♡</button>
+                        </div>
+                        <div id='num_div' style="border: 1px ; float: left;" class="like_text">
+                            <p id="num" class="like_text num3"> 123</p>
                         </div>
                     </div>
 
@@ -402,28 +349,13 @@
         </div>
         <!--회색바탕 카드 끝 -->
 
-        <h3 class="resulth3">결과 공유하기</h3><br>
+        <h3 class="resulth3">결과 공유하기</h3>
         <div class="sns">
             <a id="btnKakao" class="link-icon kakao" href="javascript:shareKakao();">&emsp;&emsp;&emsp;</a>
             <a id="btnFacebook" class="link-icon facebook" href="javascript:shareFacebook();">&emsp;&emsp;&emsp;</a>
             <a id="btnTwitter" class="link-icon twitter" href="javascript:shareTwitter();">&emsp;&emsp;&emsp;</a>
         </div>
-        <!--
-            <div class="sns_1 sns_order">
-                <a id="kakao-link-btn" href="javascript:;">
-                    <img class="sns_img" src="kakaolink_btn.png" />
-                </a>
-            </div>
-            <div class="sns_2 sns_order">
-                <a id="kakao-link-btn" href="javascript:;">
-                    <img class="sns_img" src="kakaolink_btn.png" />
-                </a>
-            </div>
-        </div>
-        <a id="btnKakao" class="link-icon kakao" href="javascript:shareKakao();">카카오톡</a>
-        <a id="btnTwitter" class="link-icon twitter" href="javascript:shareTwitter();">트위터</a>
-        <a id="btnFacebook" class="link-icon facebook" href="javascript:shareFacebook();">페이스북</a>
-        -->
+
         <script>
             function shareTwitter() {
                 var sendText = "C-MBTI"; // 전달할 텍스트
@@ -446,11 +378,11 @@
                     objectType: 'feed',
                     content: {
                         title: "C-MTBI", // 보여질 제목
-                        description: "체크카드로 보는 내 성격!", // 보여질 설명
-                        imageUrl: "http://54.180.134.106", // 콘텐츠 URL
+                        description: "체크카드로 보는 내 성격! 결과는?", // 보여질 설명
+                        imageUrl: "http://54.180.134.106/result_test.html", // 콘텐츠 URL
                         link: {
-                            mobileWebUrl: "https://developers.kakao.com",
-                            webUrl: "https://developers.kakao.com"
+                            mobileWebUrl: document.location.href,
+                            webUrl: document.location.href
                         }
                     }
                 });
@@ -466,247 +398,34 @@
                 document.all.mainTable.scrollTop = document.all.leftTable.scrollTop;
             }
         </script>
+
         <hr>
-        <h3 class="resulth3">C-MBTI 별 소비습관</h3>
+        <h3 class="resulth3 result_1">C-MBTI 별 소비습관</h3>
         <div class="survey_dis">
+
             <div class="survey_dis_1 survey_common">
                 <canvas id="myChart" width="100" height="100"></canvas>
-                <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-                <script src="https://cdn.jsdelivr.net/gh/emn178/chartjs-plugin-labels/src/chartjs-plugin-labels.js">
-                </script>
-                <script>
-                    var ctx = document.getElementById('myChart');
-                    var data = {
-                        labels: [ //데이터 값
-                            '30%',
-                            '50%',
-                            '70%',
-                            '70%~'
-                        ],
-                        datasets: [{
-                            label: 'My First Dataset',
-                            data: [300, 100, 100, 200], //각각 데이터 수치
-                            backgroundColor: [ //차트 색깔
-                                '#17AD96',
-                                '#E82663',
-                                '#EE6D50',
-                                '#FFC733'
-                            ],
-                            hoverOffset: 0
-                        }]
-                    };
-                    var myChart = new Chart(ctx, {
-                        type: 'pie',
-                        data: data,
-                        options: {
-                            legend: {
-                                display: false
-                            },
-
-                            title: {
-                                display: true,
-                                text: '월급대비 소비량',
-                                position: 'top',
-                                fontSize: 13,
-                                fontColor: '#000'
-                            },
-                            plugins: {
-                                labels: [{
-                                    render: 'label',
-                                    fontSize: 11,
-                                    fontStyle: '',
-                                    fontColor: '#FFF'
-                                }]
-                            }
-                        }
-                    });
-                </script>
             </div>
+
             <div class="survey_dis_2 survey_common">
                 <canvas id="myChart1" width="100" height="100"></canvas>
-                <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-                <script src="https://cdn.jsdelivr.net/gh/emn178/chartjs-plugin-labels/src/chartjs-plugin-labels.js">
-                </script>
-                <script>
-                    var ctx = document.getElementById('myChart1');
-                    var data = {
-                        labels: [
-                            '30만',
-                            '50만',
-                            '70만',
-                            '70만~'
-                        ],
-                        datasets: [{
-                            label: 'My First Dataset',
-                            data: [200, 150, 100, 150],
-                            backgroundColor: [
-                                '#815DA4',
-                                '#D5D746',
-                                '#D12189',
-                                '#FFC733'
-                            ],
-                            hoverOffset: 0
-                        }]
-                    };
-                    var myChart = new Chart(ctx, {
-                        type: 'pie',
-                        data: data,
-                        options: {
-                            legend: {
-                                display: false
-                            },
-
-                            title: {
-                                display: true,
-                                text: '식비',
-                                position: 'top',
-                                fontSize: 13,
-                                fontColor: '#000'
-                            },
-                            plugins: {
-                                labels: [{
-                                    render: 'label',
-                                    fontSize: 11,
-                                    fontColor: '#FFF'
-                                }]
-                            }
-                        }
-                    });
-                </script>
             </div>
-
             <div style="width: 320px;margin-top:30px; margin-left: 10px;">
                 <canvas id='myChart2' width="2" height="1"></canvas>
             </div>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.3.0/chart.min.js"></script>
-            <script src="https://cdn.jsdelivr.net/gh/emn178/chartjs-plugin-labels/src/chartjs-plugin-labels.js">
-            </script>
-            <script>
-                var ctx = document.getElementById('myChart2').getContext('2d');
-                var jbAry = [ // 데이터 값
-                    ['1', '2', '3', '4'], //의류
-                    ['4', '2', '3', '1'], //통신
-                    ['3', '4', '1', '2'] //교통
-                ];
 
-                var data = {
-                    labels: ['의류', '통신', '교통'],
-                    datasets: [{
-                            axis: 'y', // 가료형 막대로 바꾸는 옵션
-                            label: '1-block',
-                            data: [jbAry[0][0], jbAry[1][0], jbAry[2][0]],
-                            backgroundColor: [
-                                '#02B0B5',
-                                '#02B0B5',
-                                '#02B0B5',
-                            ],
-                            barThickness: 20, //바 굵기
-                            categoryPercentage: 1.0,
-                            barPercentage: 1.0,
-                            borderWidth: 1.0,
-                            borderColor: 'white'
-                        },
-                        {
-                            label: '2-block',
-                            data: [jbAry[0][1], jbAry[1][1], jbAry[2][1]],
-                            backgroundColor: [
-                                '#F7D220',
-                                '#F7D220',
-                                '#F7D220',
-                            ],
-                            barThickness: 20, //바 굵기
-                            categoryPercentage: 1.0,
-                            barPercentage: 1.0,
-                            borderWidth: 1.0,
-                            borderColor: 'white'
-                        },
-                        {
-                            label: '3-block',
-                            data: [jbAry[0][2], jbAry[1][2], jbAry[2][2]],
-                            backgroundColor: [
-                                '#F85558',
-                                '#F85558',
-                                '#F85558',
-                            ],
-                            barThickness: 20, //바 굵기
-                            categoryPercentage: 1.0,
-                            barPercentage: 1.0,
-                            borderWidth: 1.0,
-                            borderColor: 'white'
-                        },
-                        {
-                            label: '4-block',
-                            data: [jbAry[0][3], jbAry[1][3], jbAry[2][3]],
-                            backgroundColor: [
-                                '#2568FD',
-                                '#2568FD',
-                                '#2568FD',
-                            ],
-                            barThickness: 20, //바 굵기
-                            categoryPercentage: 1.0,
-                            barPercentage: 1.0,
-                            borderWidth: 1.0,
-                            borderColor: 'white'
-                        },
-                    ]
-                };
-                var stackedBar = new Chart(ctx, {
-                    type: 'bar',
-                    data: data,
-                    options: {
-                        plugins: {
-                            legend: {
-                                display: false,
-                                labels: {
-                                    // This more specific font property overrides the global property
-                                    font: {
-                                        size: 14
-                                    }
-                                }
-                            },
-
-                        },
-                        labels: {
-                            fontSize: 20
-                        },
-
-                        //responsive: false,
-                        indexAxis: 'y',
-                        scales: {
-                            x: {
-                                stacked: true,
-                                ticks: {
-                                    display: false
-                                },
-                                grid: {
-                                    color: '#f7f7f7'
-                                },
-                                offset: true
-                            },
-                            y: {
-                                stacked: true,
-                                grid: {
-                                    color: '#f7f7f7'
-                                },
-
-
-                            }
-                        },
-                    },
-                });
-            </script>
         </div>
         <div class="main_white">
             <br><br><br>
             <hr>
         </div>
-
-
-
     </div>
 
-
-
 </body>
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+<script src="https://cdn.jsdelivr.net/gh/emn178/chartjs-plugin-labels/src/chartjs-plugin-labels.js"></script>
 <script src="/result.js"></script>
+
 </html>
